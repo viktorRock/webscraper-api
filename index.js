@@ -1,10 +1,5 @@
 'use strict';
 
-const Buffer = require('safe-buffer').Buffer;
-var request = require('request');
-var async = require('async');
-
-
 /*
 * Cloud Function.
 *
@@ -15,7 +10,6 @@ exports.helloWorld = function helloWorld (event, callback) {
 	console.log(`My Cloud Function: ${event.data.message}`);
 	callback();
 };
-
 
 /*
 * HTTP Cloud Function.
