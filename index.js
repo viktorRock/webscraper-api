@@ -7,7 +7,8 @@
 * @param {function} callback The callback function.
 */
 exports.helloWorld = function helloWorld (event, callback) {
-	console.log(`My Cloud Function: ${event.data.message}`);
+	// console.log(`My Cloud Function: ${event.data.message}`);
+	console.log('My Cloud Function:', event);
 	callback();
 };
 
