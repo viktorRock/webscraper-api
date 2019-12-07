@@ -1,8 +1,6 @@
-'use strict';
+"use strict";
 
 var Crawler = require("crawler");
-
-
 /**
  * HTTP Cloud Function.
  * This function is exported by index.js, and is executed when
@@ -14,8 +12,8 @@ var Crawler = require("crawler");
  *                     More info: https://expressjs.com/en/api.html#res
  */
 exports.scraperGET = (req, res) => {
-	res.send('Hello World!');
-  };
+  res.send("Hello World!");
+};
 
 /* var c = new Crawler({
     maxConnections : 10,
