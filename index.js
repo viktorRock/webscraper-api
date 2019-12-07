@@ -1,23 +1,37 @@
 'use strict';
 
-/*
-* Cloud Function.
-*
-* @param {object} event The Cloud Functions event.
-* @param {function} callback The callback function.
-*/
-exports.helloWorld = function helloWorld (event, callback) {
-	// console.log(`My Cloud Function: ${event.data.message}`);
-	console.log('My Cloud Function:', event);
-	callback();
-};
+var Crawler = require("crawler");
 
-/*
-* HTTP Cloud Function.
-*
-* @param {Object} req Cloud Function request context.
-* @param {Object} res Cloud Function response context.
-*/
-exports.getPagSeg = function getPagSeg (req, res) {
-	res.send(`Ola ${req.body.name ||  'World'}!`);
-};
+
+/**
+ * HTTP Cloud Function.
+ * This function is exported by index.js, and is executed when
+ * you make an HTTP request to the deployed function's endpoint.
+ *
+ * @param {Object} req Cloud Function request context.
+ *                     More info: https://expressjs.com/en/api.html#req
+ * @param {Object} res Cloud Function response context.
+ *                     More info: https://expressjs.com/en/api.html#res
+ */
+exports.scraperGET = (req, res) => {
+	res.send('Hello World!');
+  };
+
+/* var c = new Crawler({
+    maxConnections : 10,
+    // This will be called for each crawled page
+    callback : function (error, res, done) {
+        if(error){
+            console.log(error);
+        }else{
+            var $ = res.$;
+            // $ is Cheerio by default
+            //a lean implementation of core jQuery designed specifically for the server
+            console.log($("title").text());
+        }
+        done();
+    }
+});
+
+// Queue just one URL, with default callback
+c.queue('http://www.amazon.com'); */
