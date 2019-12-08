@@ -1,6 +1,6 @@
 "use strict";
 const Xray = require("x-ray");
-const x = Xray();
+const xray = Xray();
 
 /**
  * HTTP Cloud Function.
@@ -13,10 +13,11 @@ const x = Xray();
  *                     More info: https://expressjs.com/en/api.html#res
  */
 exports.webscraper1 = (req, res) => {
+  console.log("before scrap");
   xray(
     "https://www.youtube.com/results?search_query=I%27m+only+human+karaoke",
     "title"
-  )(function(err, title) {
+  )((err, title) => {
     console.log(title); // Google
     res.send(title);
   });
