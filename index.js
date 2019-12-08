@@ -13,7 +13,7 @@ const xray = Xray();
  *                     More info: https://expressjs.com/en/api.html#res
  */
 exports.webscraper1 = (req, res) => {
-  console.log("before scrap");
+  console.log("before scrap", req);
   xray(
     "https://www.youtube.com/results?search_query=I%27m+only+human+karaoke",
     "title"
