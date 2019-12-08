@@ -13,7 +13,7 @@ const xray = Xray();
  *                     More info: https://expressjs.com/en/api.html#res
  */
 exports.webscraper1 = (req, res) => {
-  console.log("before scrap", req);
+  console.log("before scrap", req.body);
   xray(
     "https://www.youtube.com/results?search_query=I%27m+only+human+karaoke",
     "title"
@@ -22,3 +22,15 @@ exports.webscraper1 = (req, res) => {
     res.send(title);
   });
 };
+
+/*
+  $("div#contents.style-scope.ytd-item-section-renderer")
+
+  kik.root.children["dismissable"].children[0].children["thumbnail"].children[0].children["img"].src
+  kik.root.children["dismissable"].getElementsByClassName("yt-img-shadow")[0].getAttribute("src")
+  kik.getElementsByClassName("yt-img-shadow")[0].src
+
+  yt-formatted-string
+  style-scope ytd-channel-name complex-string
+  kik.getElementsByClassName("style-scope ytd-channel-name complex-string")[0].title
+*/
