@@ -15,7 +15,7 @@ const xray = Xray();
 exports.webscraper1 = (req, res) => {
   console.log("before scrap", req.body);
   xray(
-    "https://www.youtube.com/results?search_query=I%27m+only+human+karaoke",
+    "https://www.youtube.com/results?search_query=human+karaoke",
     "title"
   )((err, title) => {
     console.log(title); // Google
