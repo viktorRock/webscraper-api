@@ -15,6 +15,10 @@ exports.scraperGET = (req, res) => {
   res.send("Hello World!");
 };
 
+exports.webscraper1 = (req, res) => {
+	res.send("webscraper1");
+  };
+
 /* var c = new Crawler({
     maxConnections : 10,
     // This will be called for each crawled page
