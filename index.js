@@ -14,16 +14,30 @@ const xray = Xray();
  */
 exports.webscraper1 = (req, res) => {
   console.log("before scrap", req.body);
+  let body = req.body;
+  if (!body) {
+    res.send("No body was sent");
+  } else if (!body.url) {
+    res.send("No URL was sent");
+  } else if (!body.selector) {
+    res.send("No selector was sent");
+  }
+
   xray(
-    "https://www.youtube.com/results?search_query=human+karaoke",
-    "title"
-  )((err, title) => {
-    console.log(title); // Google
-    res.send(title);
+    body.url,
+    body.selector
+  )((err, output) => {
+    console.log(output); // Google
+    res.send(output);
   });
 };
 
 /*
+  { 
+  "url" : "https://www.youtube.com/results?search_query=human+karaoke",
+  "selector" : "title"   
+  }
+
   $("div#contents.style-scope.ytd-item-section-renderer")
 
   kik.root.children["dismissable"].children[0].children["thumbnail"].children[0].children["img"].src
