@@ -1,6 +1,7 @@
 "use strict";
+const Xray = require("x-ray");
+const x = Xray();
 
-var Crawler = require("crawler");
 /**
  * HTTP Cloud Function.
  * This function is exported by index.js, and is executed when
@@ -11,29 +12,12 @@ var Crawler = require("crawler");
  * @param {Object} res Cloud Function response context.
  *                     More info: https://expressjs.com/en/api.html#res
  */
-exports.scraperGET = (req, res) => {
-  res.send("Hello World!");
-};
-
 exports.webscraper1 = (req, res) => {
-  console.log("before crawl");
-  var c = new Crawler({
-    maxConnections: 10,
-    // This will be called for each crawled page
-    callback: function(error, res, done) {
-      if (error) {
-        console.log(error);
-      } else {
-        var $ = res.$;
-        // $ is Cheerio by default
-        //a lean implementation of core jQuery designed specifically for the server
-
-        res.send($("title").text());
-      }
-      done();
-    }
+  xray(
+    "https://www.youtube.com/results?search_query=I%27m+only+human+karaoke",
+    "title"
+  )(function(err, title) {
+    console.log(title); // Google
+    res.send(title);
   });
-
-  // Queue just one URL, with default callback
-  c.queue("http://www.amazon.com");
 };

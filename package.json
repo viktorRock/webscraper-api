@@ -17,6 +17,6 @@
   },
   "homepage": "https://github.com/viktorRock/webscraper-beta#readme",
   "dependencies": {
-    "crawler": "^1.2.1"
+    "x-ray": "^2.3.4"
   }
 }
